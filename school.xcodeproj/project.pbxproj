@@ -13,6 +13,7 @@
 		CA72F6F91C620BF3009B3653 /* makeGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72F6F81C620BF3009B3653 /* makeGroupViewController.swift */; };
 		CA72F6FD1C620DAA009B3653 /* GroupManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72F6FC1C620DAA009B3653 /* GroupManeger.swift */; };
 		CA86E1651C7DABD4005CBDD4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86E1641C7DABD4005CBDD4 /* SignInViewController.swift */; };
+		CA86E1691C7DB93B005CBDD4 /* InputInviteKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86E1681C7DB93B005CBDD4 /* InputInviteKeyViewController.swift */; };
 		CA92EFB91C35666200B23132 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92EFB81C35666200B23132 /* AppDelegate.swift */; };
 		CA92EFBB1C35666200B23132 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92EFBA1C35666200B23132 /* FirstViewController.swift */; };
 		CA92EFBD1C35666200B23132 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92EFBC1C35666200B23132 /* SecondViewController.swift */; };
@@ -67,6 +68,7 @@
 		CA72F6F81C620BF3009B3653 /* makeGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = makeGroupViewController.swift; sourceTree = "<group>"; };
 		CA72F6FC1C620DAA009B3653 /* GroupManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManeger.swift; sourceTree = "<group>"; };
 		CA86E1641C7DABD4005CBDD4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CA86E1681C7DB93B005CBDD4 /* InputInviteKeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputInviteKeyViewController.swift; sourceTree = "<group>"; };
 		CA92EFB51C35666200B23132 /* school.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = school.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA92EFB81C35666200B23132 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA92EFBA1C35666200B23132 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				CA72F6F81C620BF3009B3653 /* makeGroupViewController.swift */,
 				CA3E9D3A1C6B44A2004B70A1 /* StartViewController.swift */,
 				CA86E1641C7DABD4005CBDD4 /* SignInViewController.swift */,
+				CA86E1681C7DB93B005CBDD4 /* InputInviteKeyViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				CA3E9D3B1C6B44A2004B70A1 /* StartViewController.swift in Sources */,
 				CAFCA6651C58D7DF00D8FC6B /* ParseErrorManerger.swift in Sources */,
 				CA92EFB91C35666200B23132 /* AppDelegate.swift in Sources */,
+				CA86E1691C7DB93B005CBDD4 /* InputInviteKeyViewController.swift in Sources */,
 				CA92F0911C4360BB00B23132 /* customTextField.swift in Sources */,
 				CA92EFBB1C35666200B23132 /* FirstViewController.swift in Sources */,
 				CA72F6F71C620506009B3653 /* groupWhichViewController.swift in Sources */,

@@ -9,6 +9,10 @@
 import Foundation
 import Parse
 
+enum GroupError: ErrorType{
+    case falseInviteKye
+}
+
 class Group{
     var object: PFObject!
     
@@ -67,19 +71,30 @@ class Group{
             returnError = error as NSError
         }
         
-//        newGroup.saveEventually{ (bool , error ) -> Void in
-//            if error != nil{
-//                returnError = error
-//                print(error)
-//            }else{
-//                //グループを検索
-//                let getGroupError = self.getGroup()
-//                if getGroupError != nil{
-//                    returnError = getGroupError
-//                }
-//            }
-//        }
         return returnError
+    }
+    
+    func connectUserByInvitekey(user: PFUser!, key: String!) throws{
+        let array = key.componentsSeparatedByString("-")
+        let groupID = array[0]
+        let pass = array[1]
+        let query = PFQuery(className: "group")
+        query.whereKey("objectId", equalTo: groupID)
+        do{
+            try object = query.findObjects()[0]
+        }
+        if object != nil{
+            if String(object["pass"]) == pass{
+                let relation = object.relationForKey("member")
+                relation.addObject(user)
+                do{
+                    try object.save()
+                }
+            }else{
+                throw GroupError.falseInviteKye
+            }
+        }
+        
     }
 
 }

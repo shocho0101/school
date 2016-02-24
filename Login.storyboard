@@ -188,16 +188,17 @@
                     <navigationItem key="navigationItem" id="k7v-TA-5n8"/>
                     <connections>
                         <outlet property="textField" destination="Fvt-WI-z2H" id="Za0-3P-CRa"/>
+                        <segue destination="VFH-6k-3Yq" kind="push" identifier="makeGroupToStart" id="oJW-2i-fjH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIz-zG-lUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2863.5" y="253.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Input Invite Key View Controller-->
         <scene sceneID="pLG-T7-h1F">
             <objects>
-                <viewController id="mtV-Lt-DKT" sceneMemberID="viewController">
+                <viewController id="mtV-Lt-DKT" customClass="InputInviteKeyViewController" customModule="school" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vxe-dS-EX7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,6 +234,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="button" destination="mtV-Lt-DKT" eventType="touchUpInside" id="Fvo-Va-Gj8"/>
                                     <action selector="button" destination="aPO-ug-JUH" eventType="touchUpInside" id="ZMa-ne-fF7"/>
                                 </connections>
                             </button>
@@ -241,6 +243,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="sIs-4o-U5x"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="textfield" destination="wki-q2-n2t" id="8ZR-7X-eIO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aux-a2-Bi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,6 +307,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.4039215686" green="0.41960784309999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Tn6-mL-LD1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="label" destination="dH1-r6-euF" id="Joy-Dp-ivo"/>

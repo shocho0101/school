@@ -45,8 +45,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func start(){
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-        self.presentViewController(vc!, animated: true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 

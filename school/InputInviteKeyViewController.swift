@@ -1,16 +1,17 @@
 //
-//  makeGroupViewController.swift
+//  InputInviteKeyViewController.swift
 //  school
 //
-//  Created by 張翔 on 2016/02/03.
+//  Created by 張翔 on 2016/02/24.
 //  Copyright © 2016年 sho. All rights reserved.
 //
 
 import UIKit
+import Parse
 
-class makeGroupViewController: UIViewController {
+class InputInviteKeyViewController: UIViewController {
     
-    @IBOutlet var textField: UITextField!
+    @IBOutlet var textfield: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,21 +30,27 @@ class makeGroupViewController: UIViewController {
         alartcontroller.addAction(ok)
         self.presentViewController(alartcontroller, animated: true, completion: nil)
     }
+
     
     @IBAction func button(){
-        if textField.text == "" {
-            alart("グループ名を入力してください。")
+        var catchedError = false
+        if textfield.text == ""{
+            alart("入力してください")
         }else{
-            let newgroup: Group = Group()
-            let error = newgroup.createGroupAndReturnError(textField.text!)
-            if error != nil{
-                let errorManeger = ParseError(error: error)
-                self.alart(errorManeger.JapaneseForUser)
-            }else{
-                self.performSegueWithIdentifier("makeGroupToStart", sender: nil)
+            let group = Group()
+            do{
+                try group.connectUserByInvitekey(PFUser.currentUser(), key: textfield.text)
+            }catch{
+                catchedError = true
+                let parseError = ParseError(error: error as NSError)
+                alart(parseError.JapaneseForUser)
+            }
+            if catchedError == false{
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
     
     
+
 }
