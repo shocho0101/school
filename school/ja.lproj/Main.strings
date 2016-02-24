@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Loaded by FirstViewController"; ObjectID = "A5M-7J-77L"; */
+"A5M-7J-77L.text" = "Loaded by FirstViewController";
+
+/* Class = "UILabel"; text = "First View"; ObjectID = "KQZ-1w-vlD"; */
+"KQZ-1w-vlD.text" = "First View";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "MeG-bt-1EQ"; */
+"MeG-bt-1EQ.title" = "Title";
+
+/* Class = "UITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "First";
+
+/* Class = "UITabBarItem"; title = "提出物"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "提出物";
+
+/* Class = "UINavigationItem"; title = "提出物を追加"; ObjectID = "ka4-td-Dqa"; */
+"ka4-td-Dqa.title" = "提出物を追加";
