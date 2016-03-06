@@ -17,42 +17,45 @@ class Group{
     var object: PFObject!
     
     var name: String{
-        if object == nil{
-            return "nil"
-        }else{
-            return object["name"] as! String
+        get{
+            if object == nil{
+                return "nil"
+            }else{
+                return object["name"] as! String
+            }
+        }
+        set{
+            if object != nil{
+                object["name"] = newValue
+            }
         }
     }
     
     var inviteKey: String{
-        if object == nil{
-            return "nil"
-        }else{
-            return object.objectId! + "-" + String(object["pass"])
+        get{
+            if object == nil{
+                return "nil"
+            }else{
+                return object.objectId! + "-" + String(object["pass"])
+            }
         }
     }
-    
-    
     
     init(){
         
     }
     
     
-    func getGroup() -> NSError?{
-        var returnError: NSError? = nil
+    func getGroup(user: PFUser) throws{
         
         let query = PFQuery(className: "group")
-        let user = PFUser.currentUser()
-        query.whereKey("member", equalTo: user!)
+        query.whereKey("member", equalTo: user)
         do{
             try object = query.findObjects()[0]
             print(object)
-        }catch{
-            returnError = error as NSError
         }
         
-        return returnError
+    
     }
     
     func createGroupAndReturnError(groupname: String) -> NSError?{
@@ -78,27 +81,40 @@ class Group{
         let array = key.componentsSeparatedByString("-")
         let groupID = array[0]
         let pass = array[1]
+        var objectArray:[PFObject] = []
         let query = PFQuery(className: "group")
         query.whereKey("objectId", equalTo: groupID)
         do{
-            try object = query.findObjects()[0]
+            try objectArray = query.findObjects()
         }
-        if object != nil{
-            if String(object["pass"]) == pass{
-                let relation = object.relationForKey("member")
-                relation.addObject(user)
-                do{
-                    try object.save()
-                }
-            }else{
-                throw GroupError.falseInviteKye
+        if objectArray.isEmpty == false  && String(object["pass"]) == pass{
+            object = objectArray[0]
+            let relation = object.relationForKey("member")
+            relation.addObject(user)
+            do{
+                try object.save()
             }
+        }else{
+            throw NSError(domain: "school", code: 999, userInfo: nil)
         }
         
+        
+    }
+    
+    func getMember() throws -> [PFUser]{
+        var member: [PFUser] = []
+        if  object == nil{
+            throw NSError(domain: "school", code: 9999, userInfo: nil)
+        }else{
+            let relation: PFRelation = (object["member"])! as! PFRelation
+            let query = relation.query()
+            do{
+                member = try query.findObjects() as! [PFUser]
+            }
+        }
+    return member
     }
 
 }
 
-    
-    
 

@@ -244,7 +244,7 @@
                     <navigationItem key="navigationItem" id="sIs-4o-U5x"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="textfield" destination="wki-q2-n2t" id="8ZR-7X-eIO"/>
+                        <outlet property="textfield" destination="wki-q2-n2t" id="NPb-ik-Hd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aux-a2-Bi5" userLabel="First Responder" sceneMemberID="firstResponder"/>

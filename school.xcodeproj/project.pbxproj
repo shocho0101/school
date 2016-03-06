@@ -14,6 +14,8 @@
 		CA72F6FD1C620DAA009B3653 /* GroupManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72F6FC1C620DAA009B3653 /* GroupManeger.swift */; };
 		CA86E1651C7DABD4005CBDD4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86E1641C7DABD4005CBDD4 /* SignInViewController.swift */; };
 		CA86E1691C7DB93B005CBDD4 /* InputInviteKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86E1681C7DB93B005CBDD4 /* InputInviteKeyViewController.swift */; };
+		CA86E16B1C8B0125005CBDD4 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86E16A1C8B0125005CBDD4 /* MemberTableViewCell.swift */; };
+		CA86E1701C8C5D6E005CBDD4 /* MemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86E16F1C8C5D6E005CBDD4 /* MemberTableViewController.swift */; };
 		CA92EFB91C35666200B23132 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92EFB81C35666200B23132 /* AppDelegate.swift */; };
 		CA92EFBB1C35666200B23132 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92EFBA1C35666200B23132 /* FirstViewController.swift */; };
 		CA92EFBD1C35666200B23132 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92EFBC1C35666200B23132 /* SecondViewController.swift */; };
@@ -69,6 +71,8 @@
 		CA72F6FC1C620DAA009B3653 /* GroupManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManeger.swift; sourceTree = "<group>"; };
 		CA86E1641C7DABD4005CBDD4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CA86E1681C7DB93B005CBDD4 /* InputInviteKeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputInviteKeyViewController.swift; sourceTree = "<group>"; };
+		CA86E16A1C8B0125005CBDD4 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
+		CA86E16F1C8C5D6E005CBDD4 /* MemberTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberTableViewController.swift; sourceTree = "<group>"; };
 		CA92EFB51C35666200B23132 /* school.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = school.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA92EFB81C35666200B23132 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA92EFBA1C35666200B23132 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CA86E16E1C8C5D37005CBDD4 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				CA86E16F1C8C5D6E005CBDD4 /* MemberTableViewController.swift */,
+			);
+			name = Member;
+			sourceTree = "<group>";
+		};
 		CA92EFAC1C35666200B23132 = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +256,7 @@
 			children = (
 				CA92F08E1C434FDD00B23132 /* customButton.swift */,
 				CA92F0901C4360BB00B23132 /* customTextField.swift */,
+				CA86E16A1C8B0125005CBDD4 /* MemberTableViewCell.swift */,
 			);
 			name = customUI;
 			sourceTree = "<group>";
@@ -265,6 +278,7 @@
 		CAB0721A1C4F964C00473055 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CA86E16E1C8C5D37005CBDD4 /* Member */,
 				CAEB4C121C4665DA008B4613 /* TabBarController.swift */,
 				CA92EFBA1C35666200B23132 /* FirstViewController.swift */,
 				CA92EFBC1C35666200B23132 /* SecondViewController.swift */,
@@ -467,6 +481,7 @@
 				CA92EFBD1C35666200B23132 /* SecondViewController.swift in Sources */,
 				CA3E9D3B1C6B44A2004B70A1 /* StartViewController.swift in Sources */,
 				CAFCA6651C58D7DF00D8FC6B /* ParseErrorManerger.swift in Sources */,
+				CA86E1701C8C5D6E005CBDD4 /* MemberTableViewController.swift in Sources */,
 				CA92EFB91C35666200B23132 /* AppDelegate.swift in Sources */,
 				CA86E1691C7DB93B005CBDD4 /* InputInviteKeyViewController.swift in Sources */,
 				CA92F0911C4360BB00B23132 /* customTextField.swift in Sources */,
@@ -474,6 +489,7 @@
 				CA72F6F71C620506009B3653 /* groupWhichViewController.swift in Sources */,
 				CA72F6F91C620BF3009B3653 /* makeGroupViewController.swift in Sources */,
 				CA86E1651C7DABD4005CBDD4 /* SignInViewController.swift in Sources */,
+				CA86E16B1C8B0125005CBDD4 /* MemberTableViewCell.swift in Sources */,
 				CAB0721C1C4F9B9B00473055 /* signupViewController.swift in Sources */,
 				CAB072171C4F962F00473055 /* topViewController.swift in Sources */,
 				CAEB4C131C4665DA008B4613 /* TabBarController.swift in Sources */,

@@ -15,16 +15,18 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        var bool :Bool = false
         let group: Group = Group()
-        let error = group.getGroup()
-        if error != nil{
-            print(error)
-            let parseError = ParseError(error: error)
-            alart(parseError.JapaneseForUser)
-        }else{
+        do{
+           try group.getGroup(PFUser.currentUser()!)
+        }catch{
+            bool = true
+            alart(ParseError(error: (error as NSError)).JapaneseForUser)
+        }
+        if bool == false{
             label.text = group.inviteKey
         }
-
+        
     }
     
     @IBAction func copyto(){

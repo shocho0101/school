@@ -31,6 +31,7 @@ class ParseError {
         case 155: Japanese = "ただいまサーバーが混雑しています。"
         case 200, 201, 204, 205: Japanese = "メールアドレスかパスワードが間違っています"
         case 202, 203:Japanese = "既に使われているメールアドレスです。"
+        case 999: Japanese = "招待コードが間違っています"
         default: Japanese = "エラーが発生しました。"
         }
         print("error:" + Japanese)
