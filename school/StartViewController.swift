@@ -22,6 +22,7 @@ class StartViewController: UIViewController {
         }catch{
             bool = true
             alart(ParseError(error: (error as NSError)).JapaneseForUser)
+            
         }
         if bool == false{
             label.text = group.inviteKey
@@ -48,6 +49,7 @@ class StartViewController: UIViewController {
     
     @IBAction func start(){
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
 

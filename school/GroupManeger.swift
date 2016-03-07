@@ -49,10 +49,15 @@ class Group{
     func getGroup(user: PFUser) throws{
         
         let query = PFQuery(className: "group")
+        var objectArray: [PFObject] = []
         query.whereKey("member", equalTo: user)
         do{
-            try object = query.findObjects()[0]
-            print(object)
+            try objectArray = query.findObjects()
+        }
+        if objectArray.isEmpty == true{
+            throw NSError(domain: "school", code: 998, userInfo: nil)
+        }else{
+            object = objectArray[0]
         }
         
     
@@ -69,7 +74,7 @@ class Group{
         relation.addObject(user!)
         
         do{
-        try newGroup.save()
+            try newGroup.save()
         }catch{
             returnError = error as NSError
         }
@@ -87,12 +92,16 @@ class Group{
         do{
             try objectArray = query.findObjects()
         }
-        if objectArray.isEmpty == false  && String(object["pass"]) == pass{
+        if objectArray.isEmpty == false {
             object = objectArray[0]
-            let relation = object.relationForKey("member")
-            relation.addObject(user)
-            do{
-                try object.save()
+            if String(object["pass"]) == pass{
+                let relation = object.relationForKey("member")
+                relation.addObject(user)
+                do{
+                    try object.save()
+                }
+            }else{
+                throw NSError(domain: "school", code: 999, userInfo: nil)
             }
         }else{
             throw NSError(domain: "school", code: 999, userInfo: nil)
@@ -100,6 +109,8 @@ class Group{
         
         
     }
+    
+    
     
     func getMember() throws -> [PFUser]{
         var member: [PFUser] = []
@@ -113,6 +124,14 @@ class Group{
             }
         }
     return member
+    }
+    
+    func changeInviteKey() throws{
+        object["pass"] = Int(arc4random())
+        do{
+            try object.fetch()
+            try getGroup(PFUser.currentUser()!)
+        }
     }
 
 }

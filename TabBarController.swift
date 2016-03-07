@@ -12,18 +12,7 @@ import Parse
 class TabBarController: UITabBarController {
     
     override func viewDidAppear(animated: Bool) {
-        
-        //ログインしているか確認
-        if PFUser.currentUser() == nil{
-            let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-            let vc: UIViewController = storyboard.instantiateInitialViewController()!
-            self.presentViewController(vc, animated: true, completion: nil)
-            
-            print(vc)
-            
-            
-        }
-        
+
     }
 
     override func viewDidLoad() {

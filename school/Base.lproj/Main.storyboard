@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="1018" y="-704"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -61,7 +61,6 @@
         <!--メンバー-->
         <scene sceneID="eT2-pj-CcR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Zk-VR-BfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="bou-Dd-YgZ" customClass="MemberTableViewController" customModule="school" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kzs-Yo-y2m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -98,8 +97,16 @@
                             <outlet property="delegate" destination="bou-Dd-YgZ" id="62Q-Cj-25v"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="メンバー" id="m9D-ka-3hs"/>
+                    <navigationItem key="navigationItem" title="メンバー" id="m9D-ka-3hs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="as5-gW-cKE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="p0M-DF-Har" kind="show" id="jOK-HC-ood"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Zk-VR-BfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="668" y="705"/>
         </scene>
@@ -120,7 +127,69 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rA-cJ-nC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="360"/>
+            <point key="canvasLocation" x="1554" y="0.0"/>
+        </scene>
+        <!--メンバーを追加-->
+        <scene sceneID="FZf-lQ-jIH">
+            <objects>
+                <viewController id="p0M-DF-Har" customClass="AddMemberViewController" customModule="school" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dbh-Ds-hsy"/>
+                        <viewControllerLayoutGuide type="bottom" id="uhV-Id-c6U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HQl-IM-Eny">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="追加するメンバーに以下のグループコードをアプリに入力してもらってください" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdO-qJ-4Ff">
+                                <rect key="frame" x="20" y="167" width="560" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-XK-ffr">
+                                <rect key="frame" x="218" y="367" width="165" height="30"/>
+                                <state key="normal" title="クリップボードにコピー"/>
+                                <connections>
+                                    <action selector="copyto" destination="p0M-DF-Har" eventType="touchUpInside" id="unf-89-Kba"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FG4-l7-Wxn">
+                                <rect key="frame" x="225" y="405" width="150" height="30"/>
+                                <state key="normal" title="グループコードを変更"/>
+                                <connections>
+                                    <action selector="changeKey" destination="p0M-DF-Har" eventType="touchUpInside" id="r8J-Bo-u0p"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sssssssssss-sssssssssss" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OoN-NZ-c9W">
+                                <rect key="frame" x="209" y="285" width="183" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FG4-l7-Wxn" firstAttribute="top" secondItem="nbd-XK-ffr" secondAttribute="bottom" constant="8" id="49X-IW-YeS"/>
+                            <constraint firstItem="FG4-l7-Wxn" firstAttribute="centerX" secondItem="HQl-IM-Eny" secondAttribute="centerX" id="B1U-nU-Tgn"/>
+                            <constraint firstItem="DdO-qJ-4Ff" firstAttribute="leading" secondItem="HQl-IM-Eny" secondAttribute="leadingMargin" id="J9s-Wj-IbL"/>
+                            <constraint firstItem="DdO-qJ-4Ff" firstAttribute="trailing" secondItem="HQl-IM-Eny" secondAttribute="trailingMargin" id="Sfb-Kw-us8"/>
+                            <constraint firstItem="nbd-XK-ffr" firstAttribute="top" secondItem="OoN-NZ-c9W" secondAttribute="bottom" constant="52" id="VSK-vR-CJq"/>
+                            <constraint firstItem="nbd-XK-ffr" firstAttribute="centerX" secondItem="HQl-IM-Eny" secondAttribute="centerX" id="eps-c6-7Tk"/>
+                            <constraint firstItem="OoN-NZ-c9W" firstAttribute="centerX" secondItem="HQl-IM-Eny" secondAttribute="centerX" id="qdr-fE-Cdo"/>
+                            <constraint firstItem="OoN-NZ-c9W" firstAttribute="centerY" secondItem="HQl-IM-Eny" secondAttribute="centerY" id="sui-ZU-yZw"/>
+                            <constraint firstItem="DdO-qJ-4Ff" firstAttribute="top" secondItem="Dbh-Ds-hsy" secondAttribute="bottom" constant="103" id="xry-mc-qAn"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="メンバーを追加" id="VSX-sh-5Pg"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="textfield" destination="OoN-NZ-c9W" id="fmQ-lf-ayU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Fb-BP-gIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1380" y="705"/>
         </scene>
         <!--Title-->
         <scene sceneID="ZBJ-Fq-ELG">
@@ -155,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1At-m2-Axg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2339" y="360"/>
+            <point key="canvasLocation" x="2343" y="0.0"/>
         </scene>
         <!--提出物を追加-->
         <scene sceneID="97Y-xd-65W">
@@ -185,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TEs-zb-dKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3910" y="360"/>
+            <point key="canvasLocation" x="3914" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Igc-Gp-vsI">
@@ -203,18 +272,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kE-LX-iUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3098" y="360"/>
+            <point key="canvasLocation" x="3102" y="0.0"/>
         </scene>
         <!--メンバー-->
         <scene sceneID="hEf-FP-TDO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OsE-nC-Ixx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="23a-n3-HYm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="メンバー" id="qtk-m7-aV4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3NN-fO-csN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.4039215686" green="0.41960784309999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -225,6 +294,7 @@
                         <segue destination="bou-Dd-YgZ" kind="relationship" relationship="rootViewController" id="Mw4-Os-tJI"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OsE-nC-Ixx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="705"/>
         </scene>

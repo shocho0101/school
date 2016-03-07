@@ -38,6 +38,7 @@
 		CA92F08B1C43486800B23132 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA92F08A1C43486800B23132 /* Login.storyboard */; };
 		CA92F08F1C434FDD00B23132 /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92F08E1C434FDD00B23132 /* customButton.swift */; };
 		CA92F0911C4360BB00B23132 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA92F0901C4360BB00B23132 /* customTextField.swift */; };
+		CAADEE461C8D9FA60038F2BD /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADEE451C8D9FA60038F2BD /* AddMemberViewController.swift */; };
 		CAB072171C4F962F00473055 /* topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB072161C4F962F00473055 /* topViewController.swift */; };
 		CAB0721C1C4F9B9B00473055 /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0721B1C4F9B9B00473055 /* signupViewController.swift */; };
 		CAEB4C131C4665DA008B4613 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEB4C121C4665DA008B4613 /* TabBarController.swift */; };
@@ -101,6 +102,7 @@
 		CA92F08A1C43486800B23132 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = ../Login.storyboard; sourceTree = "<group>"; };
 		CA92F08E1C434FDD00B23132 /* customButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
 		CA92F0901C4360BB00B23132 /* customTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customTextField.swift; path = ../customTextField.swift; sourceTree = "<group>"; };
+		CAADEE451C8D9FA60038F2BD /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
 		CAB072161C4F962F00473055 /* topViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topViewController.swift; sourceTree = "<group>"; };
 		CAB0721B1C4F9B9B00473055 /* signupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
 		CAEB4C121C4665DA008B4613 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ../TabBarController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				CA86E16F1C8C5D6E005CBDD4 /* MemberTableViewController.swift */,
+				CAADEE451C8D9FA60038F2BD /* AddMemberViewController.swift */,
 			);
 			name = Member;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			files = (
 				CA92EFBD1C35666200B23132 /* SecondViewController.swift in Sources */,
 				CA3E9D3B1C6B44A2004B70A1 /* StartViewController.swift in Sources */,
+				CAADEE461C8D9FA60038F2BD /* AddMemberViewController.swift in Sources */,
 				CAFCA6651C58D7DF00D8FC6B /* ParseErrorManerger.swift in Sources */,
 				CA86E1701C8C5D6E005CBDD4 /* MemberTableViewController.swift in Sources */,
 				CA92EFB91C35666200B23132 /* AppDelegate.swift in Sources */,

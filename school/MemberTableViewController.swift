@@ -15,27 +15,28 @@ class MemberTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
         if PFUser.currentUser() == nil{
             let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
             let vc: UIViewController = storyboard.instantiateInitialViewController()!
             self.presentViewController(vc, animated: true, completion: nil)
-        }else{
-            let group = Group()
-            do{
-                try group.getGroup(PFUser.currentUser()!)
-                try member = group.getMember()
-            }catch{
-                alart(ParseError(error: error as NSError).JapaneseForUser)
+        }else if appDelegate.groupErrordeta != nil{
+            alart(ParseError(error: appDelegate.groupErrordeta! as NSError).JapaneseForUser)
+            if (appDelegate.groupErrordeta! as NSError).code == 998{
+                let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+                let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("group")
+                self.presentViewController(vc, animated: true, completion: nil)
             }
-            
-            
+        }else{
+            do{
+                try member = appDelegate.group.getMember()
+            }catch{
+                alart(ParseError(error: appDelegate.groupErrordeta! as NSError).JapaneseForUser)
+            }
         }
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {

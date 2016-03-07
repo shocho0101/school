@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    var group = Group()
+    var groupErrordeta: NSError? = nil
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -26,7 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             clientKey: "WCrKJFZgI4g9xjDcWHXhW6G3edXQe8HsYyImdvCa")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
+        getGroup()
+        
         return true
+    }
+    
+    func getGroup(){
+        do{
+            try group.getGroup(PFUser.currentUser()!)
+        }catch{
+            group.object = nil
+            groupErrordeta = error as NSError
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
