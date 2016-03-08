@@ -9,9 +9,7 @@
 import Foundation
 import Parse
 
-enum GroupError: ErrorType{
-    case falseInviteKye
-}
+
 
 class Group{
     var object: PFObject!

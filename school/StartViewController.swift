@@ -48,7 +48,12 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func start(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.getGroup()
+            NSNotificationCenter.defaultCenter().postNotificationName("MyNotification", object: nil)
+
+        }
         
     }
     

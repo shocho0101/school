@@ -12,10 +12,11 @@ import Parse
 class MemberTableViewController: UITableViewController {
     
     var member: [PFUser] = []
-    
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update:", name: "MyNotification", object: nil)
         
         if PFUser.currentUser() == nil{
             let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
@@ -29,15 +30,27 @@ class MemberTableViewController: UITableViewController {
                 self.presentViewController(vc, animated: true, completion: nil)
             }
         }else{
-            do{
-                try member = appDelegate.group.getMember()
-            }catch{
-                alart(ParseError(error: appDelegate.groupErrordeta! as NSError).JapaneseForUser)
-            }
+            getMember()
         }
         
         
     }
+    
+    func update(notification: NSNotification?){
+        getMember()
+        tableView.reloadData()
+    }
+    
+    func getMember(){
+        do{
+            try member = appDelegate.group.getMember()
+        }catch{
+            alart(ParseError(error: appDelegate.groupErrordeta! as NSError).JapaneseForUser)
+        }
+
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

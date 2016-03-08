@@ -34,11 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func getGroup(){
-        do{
-            try group.getGroup(PFUser.currentUser()!)
-        }catch{
-            group.object = nil
-            groupErrordeta = error as NSError
+        if PFUser.currentUser() != nil{
+            do{
+                try group.getGroup(PFUser.currentUser()!)
+            }catch{
+                group.object = nil
+                groupErrordeta = error as NSError
+            }
         }
     }
 

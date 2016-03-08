@@ -46,7 +46,11 @@ class InputInviteKeyViewController: UIViewController {
                 alart(parseError.JapaneseForUser)
             }
             if catchedError == false{
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.getGroup()
+                    NSNotificationCenter.defaultCenter().postNotificationName("MyNotification", object: nil)
+                })
             }
         }
     }

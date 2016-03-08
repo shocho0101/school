@@ -24,7 +24,10 @@ class FirstViewController: UIViewController {
     
     @IBAction func logout(){
         PFUser.logOut()
-        tabBarController?.viewDidAppear(true)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let vc: UIViewController = storyboard.instantiateInitialViewController()!
+        self.presentViewController(vc, animated: true, completion: nil)
+
     }
 
 

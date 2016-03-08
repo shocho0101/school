@@ -41,6 +41,7 @@
 		CAADEE461C8D9FA60038F2BD /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADEE451C8D9FA60038F2BD /* AddMemberViewController.swift */; };
 		CAB072171C4F962F00473055 /* topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB072161C4F962F00473055 /* topViewController.swift */; };
 		CAB0721C1C4F9B9B00473055 /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0721B1C4F9B9B00473055 /* signupViewController.swift */; };
+		CAB0A0C21C8EEE7300E30D27 /* TaskManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0A0C11C8EEE7300E30D27 /* TaskManeger.swift */; };
 		CAEB4C131C4665DA008B4613 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEB4C121C4665DA008B4613 /* TabBarController.swift */; };
 		CAFCA6651C58D7DF00D8FC6B /* ParseErrorManerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFCA6641C58D7DF00D8FC6B /* ParseErrorManerger.swift */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		CAADEE451C8D9FA60038F2BD /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
 		CAB072161C4F962F00473055 /* topViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topViewController.swift; sourceTree = "<group>"; };
 		CAB0721B1C4F9B9B00473055 /* signupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
+		CAB0A0C11C8EEE7300E30D27 /* TaskManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManeger.swift; sourceTree = "<group>"; };
 		CAEB4C121C4665DA008B4613 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ../TabBarController.swift; sourceTree = "<group>"; };
 		CAFCA6641C58D7DF00D8FC6B /* ParseErrorManerger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseErrorManerger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -295,6 +297,7 @@
 			children = (
 				CAFCA6641C58D7DF00D8FC6B /* ParseErrorManerger.swift */,
 				CA72F6FC1C620DAA009B3653 /* GroupManeger.swift */,
+				CAB0A0C11C8EEE7300E30D27 /* TaskManeger.swift */,
 			);
 			name = Manegers;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				CAEB4C131C4665DA008B4613 /* TabBarController.swift in Sources */,
 				CA92F0891C35725A00B23132 /* NewHomeworkViewController.swift in Sources */,
 				CA92F08F1C434FDD00B23132 /* customButton.swift in Sources */,
+				CAB0A0C21C8EEE7300E30D27 /* TaskManeger.swift in Sources */,
 				CA72F6FD1C620DAA009B3653 /* GroupManeger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

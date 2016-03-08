@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="-704"/>
+            <point key="canvasLocation" x="412" y="-1098"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -61,7 +61,7 @@
         <!--メンバー-->
         <scene sceneID="eT2-pj-CcR">
             <objects>
-                <tableViewController id="bou-Dd-YgZ" customClass="MemberTableViewController" customModule="school" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="member" id="bou-Dd-YgZ" customClass="MemberTableViewController" customModule="school" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kzs-Yo-y2m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +77,7 @@
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メンバー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9P-K6-kh3">
                                             <rect key="frame" x="8" y="11" width="68" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -108,7 +108,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Zk-VR-BfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="705"/>
+            <point key="canvasLocation" x="1600" y="785"/>
         </scene>
         <!--提出物-->
         <scene sceneID="KzR-lb-xXD">
@@ -127,7 +127,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rA-cJ-nC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="0.0"/>
+            <point key="canvasLocation" x="932" y="0.0"/>
         </scene>
         <!--メンバーを追加-->
         <scene sceneID="FZf-lQ-jIH">
@@ -144,7 +144,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="追加するメンバーに以下のグループコードをアプリに入力してもらってください" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdO-qJ-4Ff">
                                 <rect key="frame" x="20" y="167" width="560" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-XK-ffr">
@@ -189,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Fb-BP-gIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="705"/>
+            <point key="canvasLocation" x="2312" y="785"/>
         </scene>
         <!--Title-->
         <scene sceneID="ZBJ-Fq-ELG">
@@ -224,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1At-m2-Axg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="0.0"/>
+            <point key="canvasLocation" x="1683" y="0.0"/>
         </scene>
         <!--提出物を追加-->
         <scene sceneID="97Y-xd-65W">
@@ -272,7 +272,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kE-LX-iUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3102" y="0.0"/>
+            <point key="canvasLocation" x="2902" y="0.0"/>
         </scene>
         <!--メンバー-->
         <scene sceneID="hEf-FP-TDO">
@@ -296,7 +296,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsE-nC-Ixx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="705"/>
+            <point key="canvasLocation" x="932" y="785"/>
         </scene>
     </scenes>
     <resources>
