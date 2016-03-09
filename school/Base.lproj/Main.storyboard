@@ -119,6 +119,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lq6-lZ-wA6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.40392157439999998" green="0.4196078479" blue="0.57647061349999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -194,19 +199,69 @@
         <!--Title-->
         <scene sceneID="ZBJ-Fq-ELG">
             <objects>
-                <tableViewController id="rEi-2v-PJV" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KH6-59-dsl">
+                <tableViewController id="rEi-2v-PJV" customClass="TaskTableViewController" customModule="school" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="KH6-59-dsl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TeQ-h9-AAX">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskcell" rowHeight="55" id="TeQ-h9-AAX" customClass="TaskTableViewCell" customModule="school" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TeQ-h9-AAX" id="jYa-uY-AfN">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbo-WR-APc">
+                                            <rect key="frame" x="8" y="8" width="68" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enW-7k-eVC">
+                                            <rect key="frame" x="551" y="8" width="41" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adA-Vd-vOR">
+                                            <rect key="frame" x="512" y="8" width="39" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="誰かさんが投稿しました" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgA-iv-g8V">
+                                            <rect key="frame" x="449" y="33" width="143" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメントコメントコメントコメント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2x-Wv-gI8">
+                                            <rect key="frame" x="8" y="33" width="208" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Bbo-WR-APc" firstAttribute="top" secondItem="jYa-uY-AfN" secondAttribute="topMargin" id="2sK-vi-7eA"/>
+                                        <constraint firstItem="Bbo-WR-APc" firstAttribute="leading" secondItem="jYa-uY-AfN" secondAttribute="leadingMargin" id="5PM-Xk-QxO"/>
+                                        <constraint firstItem="TgA-iv-g8V" firstAttribute="top" secondItem="adA-Vd-vOR" secondAttribute="bottom" constant="4.5" id="5hY-Ti-AWM"/>
+                                        <constraint firstItem="r2x-Wv-gI8" firstAttribute="top" secondItem="Bbo-WR-APc" secondAttribute="bottom" constant="4.5" id="9Eg-Oc-7ep"/>
+                                        <constraint firstItem="adA-Vd-vOR" firstAttribute="top" secondItem="jYa-uY-AfN" secondAttribute="topMargin" id="ADp-cv-y4B"/>
+                                        <constraint firstItem="TgA-iv-g8V" firstAttribute="trailing" secondItem="jYa-uY-AfN" secondAttribute="trailingMargin" id="NKm-wR-N4w"/>
+                                        <constraint firstItem="r2x-Wv-gI8" firstAttribute="leading" secondItem="jYa-uY-AfN" secondAttribute="leadingMargin" id="R0a-Z5-fpm"/>
+                                        <constraint firstItem="enW-7k-eVC" firstAttribute="top" secondItem="jYa-uY-AfN" secondAttribute="topMargin" id="ahI-PE-VlV"/>
+                                        <constraint firstItem="enW-7k-eVC" firstAttribute="leading" secondItem="adA-Vd-vOR" secondAttribute="trailing" id="jkG-xN-pHP"/>
+                                        <constraint firstItem="enW-7k-eVC" firstAttribute="trailing" secondItem="jYa-uY-AfN" secondAttribute="trailingMargin" id="zMJ-CD-N3c"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="comment" destination="r2x-Wv-gI8" id="f5a-cH-v73"/>
+                                    <outlet property="createdby" destination="TgA-iv-g8V" id="tzI-Lz-mYj"/>
+                                    <outlet property="deadline" destination="enW-7k-eVC" id="RG6-He-eTK"/>
+                                    <outlet property="title" destination="Bbo-WR-APc" id="AKQ-Fl-wdr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -254,7 +309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TEs-zb-dKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3914" y="0.0"/>
+            <point key="canvasLocation" x="3170" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Igc-Gp-vsI">
@@ -264,6 +319,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fT2-dh-K1q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.40392157439999998" green="0.4196078479" blue="0.57647061349999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -272,7 +332,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kE-LX-iUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2902" y="0.0"/>
+            <point key="canvasLocation" x="2418" y="0.0"/>
         </scene>
         <!--メンバー-->
         <scene sceneID="hEf-FP-TDO">

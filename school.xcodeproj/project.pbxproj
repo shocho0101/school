@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9D4347590957DFD0281697AC /* Pods_school.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8120612789CA82C463D91A1 /* Pods_school.framework */; };
+		CA121A2E1C9040E900B6C67E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA121A2D1C9040E900B6C67E /* TaskTableViewCell.swift */; };
+		CA121A311C90428900B6C67E /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA121A301C90428900B6C67E /* TaskTableViewController.swift */; };
 		CA3E9D3B1C6B44A2004B70A1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E9D3A1C6B44A2004B70A1 /* StartViewController.swift */; };
 		CA72F6F71C620506009B3653 /* groupWhichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72F6F61C620506009B3653 /* groupWhichViewController.swift */; };
 		CA72F6F91C620BF3009B3653 /* makeGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72F6F81C620BF3009B3653 /* makeGroupViewController.swift */; };
@@ -67,6 +69,8 @@
 		1953EA3A5E6184A5BC1C9B09 /* Pods-school.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-school.release.xcconfig"; path = "Pods/Target Support Files/Pods-school/Pods-school.release.xcconfig"; sourceTree = "<group>"; };
 		8F58E2A5E3EBB4AA4BAB2274 /* Pods-school.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-school.debug.xcconfig"; path = "Pods/Target Support Files/Pods-school/Pods-school.debug.xcconfig"; sourceTree = "<group>"; };
 		C8120612789CA82C463D91A1 /* Pods_school.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_school.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA121A2D1C9040E900B6C67E /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		CA121A301C90428900B6C67E /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		CA3E9D3A1C6B44A2004B70A1 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		CA72F6F61C620506009B3653 /* groupWhichViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupWhichViewController.swift; sourceTree = "<group>"; };
 		CA72F6F81C620BF3009B3653 /* makeGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = makeGroupViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +178,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CA121A2F1C90420900B6C67E /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				CA92F0881C35725A00B23132 /* NewHomeworkViewController.swift */,
+				CA121A301C90428900B6C67E /* TaskTableViewController.swift */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
 		CA86E16E1C8C5D37005CBDD4 /* Member */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +275,7 @@
 				CA92F08E1C434FDD00B23132 /* customButton.swift */,
 				CA92F0901C4360BB00B23132 /* customTextField.swift */,
 				CA86E16A1C8B0125005CBDD4 /* MemberTableViewCell.swift */,
+				CA121A2D1C9040E900B6C67E /* TaskTableViewCell.swift */,
 			);
 			name = customUI;
 			sourceTree = "<group>";
@@ -284,10 +298,10 @@
 			isa = PBXGroup;
 			children = (
 				CA86E16E1C8C5D37005CBDD4 /* Member */,
+				CA121A2F1C90420900B6C67E /* Task */,
 				CAEB4C121C4665DA008B4613 /* TabBarController.swift */,
 				CA92EFBA1C35666200B23132 /* FirstViewController.swift */,
 				CA92EFBC1C35666200B23132 /* SecondViewController.swift */,
-				CA92F0881C35725A00B23132 /* NewHomeworkViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -498,7 +512,9 @@
 				CA86E1651C7DABD4005CBDD4 /* SignInViewController.swift in Sources */,
 				CA86E16B1C8B0125005CBDD4 /* MemberTableViewCell.swift in Sources */,
 				CAB0721C1C4F9B9B00473055 /* signupViewController.swift in Sources */,
+				CA121A2E1C9040E900B6C67E /* TaskTableViewCell.swift in Sources */,
 				CAB072171C4F962F00473055 /* topViewController.swift in Sources */,
+				CA121A311C90428900B6C67E /* TaskTableViewController.swift in Sources */,
 				CAEB4C131C4665DA008B4613 /* TabBarController.swift in Sources */,
 				CA92F0891C35725A00B23132 /* NewHomeworkViewController.swift in Sources */,
 				CA92F08F1C434FDD00B23132 /* customButton.swift in Sources */,

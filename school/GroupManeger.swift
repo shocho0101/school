@@ -43,7 +43,7 @@ class Group{
         
     }
     
-    
+    //userのグループを取得
     func getGroup(user: PFUser) throws{
         
         let query = PFQuery(className: "group")
@@ -61,6 +61,7 @@ class Group{
     
     }
     
+    //グループを作成
     func createGroupAndReturnError(groupname: String) -> NSError?{
         let newGroup: PFObject = PFObject(className: "group")
         var returnError: NSError? = nil
@@ -80,6 +81,7 @@ class Group{
         return returnError
     }
     
+    //グループキーからユーザーを結びつけ
     func connectUserByInvitekey(user: PFUser!, key: String!) throws{
         let array = key.componentsSeparatedByString("-")
         let groupID = array[0]
@@ -109,7 +111,7 @@ class Group{
     }
     
     
-    
+    //グループのメンバー取得
     func getMember() throws -> [PFUser]{
         var member: [PFUser] = []
         if  object == nil{
@@ -124,13 +126,49 @@ class Group{
     return member
     }
     
+    //グループキー変更
     func changeInviteKey() throws{
         object["pass"] = Int(arc4random())
         do{
-            try object.fetch()
+            try object.save()
             try getGroup(PFUser.currentUser()!)
         }
     }
+    
+    //グループのtaskを取得
+    func getTasks() throws -> [Task]{
+        var taskObjects: [Task] = []
+        if  object == nil{
+            throw NSError(domain: "school", code: 9999, userInfo: nil)
+        }else{
+            let relation: PFRelation = (object["tasks"])! as! PFRelation
+            let query = relation.query()
+            do{
+                taskObjects = try query.findObjects() as! [Task]
+            }
+        }
+        
+        return taskObjects
+    }
+    
+    //taskを結びつけ
+    func connectTask(task: Task){
+        let relation = object.relationForKey("tasks")
+        relation.addObject(task)
+        object.saveInBackgroundWithBlock { (succeed, error) -> Void in
+            if error != nil{
+                
+            }else{
+                do{
+                    try self.getGroup(PFUser.currentUser()!)
+                }catch{
+                    
+                }
+            }
+        }
+    }
+    
+    
 
 }
 
