@@ -302,7 +302,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="cOh-Dc-Ej2">
                             <connections>
-                                <action selector="save" destination="dBW-09-IeE" id="73g-Va-ZUH"/>
+                                <action selector="save" destination="dBW-09-IeE" id="Wal-8m-WgT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

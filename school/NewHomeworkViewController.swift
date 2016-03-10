@@ -9,6 +9,7 @@
 import UIKit
 import XLForm
 import Parse
+import SVProgressHUD
 
 
 class NewHomeworkViewController: XLFormViewController {
@@ -95,22 +96,30 @@ class NewHomeworkViewController: XLFormViewController {
             presentViewController(alart, animated: true, completion: nil)
         }else{
             savedata()
-            dismissViewControllerAnimated(true, completion: { () -> Void in
-                
-            })
         }
     }
     
-    func savedata(){
-        let task = Task()
-        task.title = form.formRowWithTag(tag.name)?.value as! String
-        task.deadline = form.formRowWithTag(tag.deadline)?.value as! NSDate
-        task.comment = form.formRowWithTag(tag.comment)?.value as? String
-        do{
-            try task.post()
-        }catch{
-            alart(ParseError(error: error as NSError).JapaneseForUser)
-        }
+    @IBAction func savedata(){
+        SVProgressHUD.show()
+        let delay = 0.01 * Double(NSEC_PER_SEC)
+        let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue(), {
+            let task = Task()
+            task.title = self.form.formRowWithTag(tag.name)?.value as! String
+            task.deadline = self.form.formRowWithTag(tag.deadline)?.value as! NSDate
+            task.comment = self.form.formRowWithTag(tag.comment)?.value as? String
+            
+            do{
+                defer{
+                    SVProgressHUD.dismiss()
+                }
+                try task.post()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }catch{
+                self.alart(ParseError(error: error as NSError).JapaneseForUser)
+            }
+
+        })
         
         
     }

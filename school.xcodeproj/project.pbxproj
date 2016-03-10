@@ -10,6 +10,7 @@
 		9D4347590957DFD0281697AC /* Pods_school.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8120612789CA82C463D91A1 /* Pods_school.framework */; };
 		CA121A2E1C9040E900B6C67E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA121A2D1C9040E900B6C67E /* TaskTableViewCell.swift */; };
 		CA121A311C90428900B6C67E /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA121A301C90428900B6C67E /* TaskTableViewController.swift */; };
+		CA14A8651C91B4490080E2E6 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA14A8641C91B4490080E2E6 /* SVProgressHUD.framework */; };
 		CA3E9D3B1C6B44A2004B70A1 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E9D3A1C6B44A2004B70A1 /* StartViewController.swift */; };
 		CA72F6F71C620506009B3653 /* groupWhichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72F6F61C620506009B3653 /* groupWhichViewController.swift */; };
 		CA72F6F91C620BF3009B3653 /* makeGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72F6F81C620BF3009B3653 /* makeGroupViewController.swift */; };
@@ -71,6 +72,7 @@
 		C8120612789CA82C463D91A1 /* Pods_school.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_school.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA121A2D1C9040E900B6C67E /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		CA121A301C90428900B6C67E /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
+		CA14A8641C91B4490080E2E6 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/SVProgressHUD.framework"; sourceTree = "<group>"; };
 		CA3E9D3A1C6B44A2004B70A1 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		CA72F6F61C620506009B3653 /* groupWhichViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupWhichViewController.swift; sourceTree = "<group>"; };
 		CA72F6F81C620BF3009B3653 /* makeGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = makeGroupViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA14A8651C91B4490080E2E6 /* SVProgressHUD.framework in Frameworks */,
 				CA92F0091C3568E500B23132 /* libsqlite3.tbd in Frameworks */,
 				CA92F0071C3568D700B23132 /* libz.tbd in Frameworks */,
 				CA92F0051C3568CA00B23132 /* SystemConfiguration.framework in Frameworks */,
@@ -154,6 +157,7 @@
 		11A06E0D2BC405ED7BCC7C5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA14A8641C91B4490080E2E6 /* SVProgressHUD.framework */,
 				CA92F0081C3568E500B23132 /* libsqlite3.tbd */,
 				CA92F0061C3568D700B23132 /* libz.tbd */,
 				CA92F0041C3568CA00B23132 /* SystemConfiguration.framework */,
@@ -660,7 +664,10 @@
 			baseConfigurationReference = 8F58E2A5E3EBB4AA4BAB2274 /* Pods-school.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = school/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -674,7 +681,10 @@
 			baseConfigurationReference = 1953EA3A5E6184A5BC1C9B09 /* Pods-school.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = school/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";

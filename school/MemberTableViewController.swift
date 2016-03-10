@@ -60,7 +60,11 @@ class MemberTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if appDelegate.group == nil{
+            return 0
+        }else{
         return (appDelegate.group?.memberObjects.count)!
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

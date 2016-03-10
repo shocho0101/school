@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("YTVxEJwZVuNAEnld51oB6mbzzDdJjXOdJAIeP1D4",
             clientKey: "WCrKJFZgI4g9xjDcWHXhW6G3edXQe8HsYyImdvCa")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        
+        Group.initialize()
+        Task.initialize()
         getGroup()
         
         return true

@@ -46,6 +46,13 @@ class Group: PFObject, PFSubclassing {
         let tasksQuery = tasks.query()
         do{
             tasksObjects = try tasksQuery.findObjects() as! [Task]
+            for task in tasksObjects{
+                let query = task.createdBy.query()
+                do{
+                    task.createdByName = try query.findObjects()[0]["name"] as! String
+                }
+            }
+
         }
     }
     
@@ -101,6 +108,9 @@ class GroupManeger {
             throw NSError(domain: "school", code: 998, userInfo: nil)
         }else{
             group = objectArray[0] as! Group
+            do{
+                try group.getRelationObjecs()
+            }
         }
         return group
     }

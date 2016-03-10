@@ -11,7 +11,6 @@ import Parse
 
 class TaskTableViewController: UITableViewController {
     
-    var tasks: [Task] = []
     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +28,25 @@ class TaskTableViewController: UITableViewController {
                 self.presentViewController(vc, animated: true, completion: nil)
             }
         }
+        
+        let reflesh = UIRefreshControl()
+        reflesh.addTarget(self, action: "reflesh", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = reflesh
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func reflesh(){
+        do{
+            try appDelegate.group?.reload()
+        }catch{
+            alart(ParseError(error: error as NSError).JapaneseForUser)
+        }
+        tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
     
 

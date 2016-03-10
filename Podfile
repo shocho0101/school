@@ -4,7 +4,7 @@
  use_frameworks!
 
 target 'school' do
-pod 'ParseUI'
+pod 'SVProgressHUD'
 pod 'XLForm', '~> 3.0'
 pod 'Parse' 
 end

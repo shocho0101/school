@@ -86,12 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-school/Bolts.framework"
   install_framework "Pods-school/Parse.framework"
-  install_framework "Pods-school/ParseUI.framework"
+  install_framework "Pods-school/SVProgressHUD.framework"
   install_framework "Pods-school/XLForm.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-school/Bolts.framework"
   install_framework "Pods-school/Parse.framework"
-  install_framework "Pods-school/ParseUI.framework"
+  install_framework "Pods-school/SVProgressHUD.framework"
   install_framework "Pods-school/XLForm.framework"
 fi
