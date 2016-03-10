@@ -28,8 +28,6 @@ class TaskTableViewController: UITableViewController {
                 let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("group")
                 self.presentViewController(vc, animated: true, completion: nil)
             }
-        }else{
-            getTasks()
         }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,13 +36,6 @@ class TaskTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func getTasks(){
-        do{
-            try tasks = appDelegate.group.getTasks()
-        }catch{
-            alart(ParseError(error: appDelegate.groupErrordeta! as NSError).JapaneseForUser)
-        }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,12 +51,14 @@ class TaskTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasks.count
+        return (appDelegate.group?.tasksObjects.count)!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("taskcell", forIndexPath: indexPath) as! TaskTableViewCell
-        cell.title.text = tasks[indexPath.row].title
+        cell.title.text = appDelegate.group?.tasksObjects[indexPath.row].title
+        cell.createdby.text = (appDelegate.group?.tasksObjects[indexPath.row].createdByName)! + "が投稿しました"
+        cell.comment.text = appDelegate.group?.tasksObjects[indexPath.row].comment
         return cell
     }
     

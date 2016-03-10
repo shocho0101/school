@@ -15,17 +15,12 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var bool :Bool = false
-        let group: Group = Group()
         do{
-           try group.getGroup(PFUser.currentUser()!)
+            let group = try GroupManeger().findGroup()
+            label.text = group.inviteKey
         }catch{
-            bool = true
             alart(ParseError(error: (error as NSError)).JapaneseForUser)
             
-        }
-        if bool == false{
-            label.text = group.inviteKey
         }
         
     }

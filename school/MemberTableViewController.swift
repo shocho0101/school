@@ -11,7 +11,6 @@ import Parse
 
 class MemberTableViewController: UITableViewController {
     
-    var member: [PFUser] = []
     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,26 +28,21 @@ class MemberTableViewController: UITableViewController {
                 let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("group")
                 self.presentViewController(vc, animated: true, completion: nil)
             }
-        }else{
-            getMember()
         }
         
         
     }
     
     func update(notification: NSNotification?){
-        getMember()
+        do{
+            try appDelegate.group?.reload()
+        }catch{
+            alart(ParseError(error: error as NSError).JapaneseForUser)
+        }
         tableView.reloadData()
     }
     
-    func getMember(){
-        do{
-            try member = appDelegate.group.getMember()
-        }catch{
-            alart(ParseError(error: appDelegate.groupErrordeta! as NSError).JapaneseForUser)
-        }
-
-    }
+    
     
     
     
@@ -66,12 +60,12 @@ class MemberTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return member.count
+        return (appDelegate.group?.memberObjects.count)!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! MemberTableViewCell
-        cell.name.text = member[indexPath.row]["name"] as? String
+        cell.name.text = appDelegate.group?.memberObjects[indexPath.row]["name"] as? String
         return cell
     }
     

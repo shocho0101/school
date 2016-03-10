@@ -11,10 +11,13 @@ import Parse
 
 class Task: PFObject, PFSubclassing {
     
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @NSManaged var title: String
     @NSManaged var deadline: NSDate
     @NSManaged var comment: String?
     @NSManaged var createdBy: PFRelation
+    var createdByName: String!
     
     override class func initialize(){
         var onceToken: dispatch_once_t = 0
@@ -27,27 +30,35 @@ class Task: PFObject, PFSubclassing {
         return "task"
     }
     
-    func post() {
+//    func post() {
+//        createdBy.addObject(PFUser.currentUser()!)
+//        self.saveInBackgroundWithBlock { (succeed, error) -> Void in
+//            if error != nil{
+//                let notification: NSNotification = NSNotification(name: "posterror", object: nil, userInfo: ["code": error!.code])
+//                NSNotificationCenter.defaultCenter().postNotification(notification)
+//            }else{
+//                print(self.objectId)
+//                let group: Group =  Group()
+//                do{
+//                    try group.getGroup(PFUser.currentUser()!)
+//                }catch let caughtError as NSError{
+//                    let notification: NSNotification = NSNotification(name: "posterror", object: nil, userInfo: ["code": caughtError.code])
+//                    NSNotificationCenter.defaultCenter().postNotification(notification)
+//                }
+//                group.connectTask(self)
+//            }
+//            
+//        }
+//        self.saveInBackground()
+//        
+//    }
+    
+    func post() throws{
         createdBy.addObject(PFUser.currentUser()!)
-        self.saveInBackgroundWithBlock { (succeed, error) -> Void in
-            if error != nil{
-                let notification: NSNotification = NSNotification(name: "posterror", object: nil, userInfo: ["code": error!.code])
-                NSNotificationCenter.defaultCenter().postNotification(notification)
-            }else{
-                print(self.objectId)
-                let group: Group =  Group()
-                do{
-                    try group.getGroup(PFUser.currentUser()!)
-                }catch let caughtError as NSError{
-                    let notification: NSNotification = NSNotification(name: "posterror", object: nil, userInfo: ["code": caughtError.code])
-                    NSNotificationCenter.defaultCenter().postNotification(notification)
-                }
-                group.connectTask(self)
-            }
-            
+        do{
+            try self.save()
+            try appDelegate.group?.connectTaskAndReload(self)
         }
-        self.saveInBackground()
-        
     }
     
     

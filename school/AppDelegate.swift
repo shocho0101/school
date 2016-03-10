@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var group = Group()
+    var group: Group?
     var groupErrordeta: NSError? = nil
 
 
@@ -36,9 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func getGroup(){
         if PFUser.currentUser() != nil{
             do{
-                try group.getGroup(PFUser.currentUser()!)
+                group = try GroupManeger().findGroup()
             }catch{
-                group.object = nil
+                group = nil
                 groupErrordeta = error as NSError
             }
         }

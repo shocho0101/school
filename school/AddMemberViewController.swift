@@ -17,7 +17,7 @@ class AddMemberViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        textfield.text = appDelegate.group.inviteKey
+        textfield.text = appDelegate.group!.inviteKey
         // Do any additional setup after loading the view.
     }
 
@@ -47,11 +47,11 @@ class AddMemberViewController: UIViewController {
     
     func change(){
         do{
-            try appDelegate.group.changeInviteKey()
+            try appDelegate.group?.changeInviteKeyAndReload()
         }catch{
             alart(ParseError(error: error as NSError).JapaneseForUser)
         }
-        textfield.text = appDelegate.group.inviteKey
+        textfield.text = appDelegate.group!.inviteKey
     }
     
     func alart(text: String){

@@ -24,7 +24,7 @@ class NewHomeworkViewController: XLFormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createForm()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "error:", name: "posterror", object: nil)
+
 
         // Do any additional setup after loading the view.
     }
@@ -106,16 +106,15 @@ class NewHomeworkViewController: XLFormViewController {
         task.title = form.formRowWithTag(tag.name)?.value as! String
         task.deadline = form.formRowWithTag(tag.deadline)?.value as! NSDate
         task.comment = form.formRowWithTag(tag.comment)?.value as? String
-        task.post()
+        do{
+            try task.post()
+        }catch{
+            alart(ParseError(error: error as NSError).JapaneseForUser)
+        }
         
         
     }
     
-    func error(notification: NSNotification){
-        let aError: NSError = NSError(domain: "", code: notification.userInfo!["code"]! as! Int, userInfo: nil)
-        alart(ParseError(error: aError).JapaneseForUser)
-        
-    }
     
     //アラート表示
     func alart(text: String){

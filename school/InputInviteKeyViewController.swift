@@ -33,24 +33,19 @@ class InputInviteKeyViewController: UIViewController {
 
     
     @IBAction func button(){
-        var catchedError = false
         if textfield.text == ""{
             alart("入力してください")
         }else{
-            let group = Group()
             do{
-                try group.connectUserByInvitekey(PFUser.currentUser(), key: textfield.text)
-            }catch{
-                catchedError = true
-                let parseError = ParseError(error: error as NSError)
-                alart(parseError.JapaneseForUser)
-            }
-            if catchedError == false{
+                try GroupManeger().connectUserByInviteKey(PFUser.currentUser()!, key: textfield.text!)
                 self.dismissViewControllerAnimated(true, completion: { () -> Void in
                     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                     appDelegate.getGroup()
                     NSNotificationCenter.defaultCenter().postNotificationName("MyNotification", object: nil)
                 })
+            }catch{
+                let parseError = ParseError(error: error as NSError)
+                alart(parseError.JapaneseForUser)
             }
         }
     }

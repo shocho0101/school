@@ -77,9 +77,6 @@ class signupViewController: UIViewController {
                 
 
             }else{
-//                let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewControllerWithIdentifier("group")
-//                self.presentViewController(vc, animated: true, completion: nil)
-//
                 self.performSegueWithIdentifier("singupToGroupWhich", sender: nil)
             }
         }

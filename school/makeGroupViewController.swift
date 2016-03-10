@@ -34,13 +34,11 @@ class makeGroupViewController: UIViewController {
         if textField.text == "" {
             alart("グループ名を入力してください。")
         }else{
-            let newgroup: Group = Group()
-            let error = newgroup.createGroupAndReturnError(textField.text!)
-            if error != nil{
-                let errorManeger = ParseError(error: error)
-                self.alart(errorManeger.JapaneseForUser)
-            }else{
-                self.performSegueWithIdentifier("makeGroupToStart", sender: nil)
+            do{
+            try GroupManeger().createGroup(textField.text!)
+            self.performSegueWithIdentifier("makeGroupToStart", sender: nil)
+            }catch{
+                alart(ParseError(error: error as NSError).JapaneseForUser)
             }
         }
     }
