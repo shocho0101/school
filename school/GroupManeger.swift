@@ -46,13 +46,26 @@ class Group: PFObject, PFSubclassing {
         let tasksQuery = tasks.query()
         do{
             tasksObjects = try tasksQuery.findObjects() as! [Task]
-            for task in tasksObjects{
-                let query = task.createdBy.query()
-                do{
-                    task.createdByName = try query.findObjects()[0]["name"] as! String
+            
+        }
+        
+        for task in tasksObjects{
+            let span =  NSDate().timeIntervalSinceDate(task.deadline)
+            if task.deadline.compare(NSDate()) == NSComparisonResult.OrderedAscending {
+                if span/60/60/24 >= 3{
+                    self.tasks.removeObject(task)
                 }
             }
-
+        }
+        
+        self.saveInBackground()
+        
+        tasksObjects.sortInPlace { (task1, task2) -> Bool in
+            if task1.deadline.compare(task2.deadline) == NSComparisonResult.OrderedAscending{
+                return true
+            }else{
+                return false
+            }
         }
     }
     
@@ -63,10 +76,11 @@ class Group: PFObject, PFSubclassing {
         }
     }
     
+    
     func changeInviteKeyAndReload() throws{
         pass = Int(arc4random())
         do{
-            try self.reload()
+            try self.fetch()
             try self.save()
             try self.reload()
         }
@@ -76,7 +90,7 @@ class Group: PFObject, PFSubclassing {
         let relation = self.relationForKey("tasks")
         relation.addObject(task)
         do{
-            try self.reload()
+            try self.fetch()
             try self.save()
             try self.reload()
         }
@@ -86,12 +100,14 @@ class Group: PFObject, PFSubclassing {
         let relation = self.relationForKey("member")
         relation.addObject(user)
         do{
-            try self.reload()
+            try self.fetch()
             try self.save()
             try self.reload()
         }
+        
     }
 }
+
 
 class GroupManeger {
     init(){

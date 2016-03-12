@@ -12,9 +12,15 @@ import Parse
 class TaskTableViewController: UITableViewController {
     
     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var date_formatter: NSDateFormatter = NSDateFormatter()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        date_formatter.locale     = NSLocale(localeIdentifier: "ja")
+        date_formatter.dateFormat = "MM/ddb"
+
+
         
         if PFUser.currentUser() == nil{
             let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
@@ -70,7 +76,7 @@ class TaskTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("taskcell", forIndexPath: indexPath) as! TaskTableViewCell
         cell.title.text = appDelegate.group?.tasksObjects[indexPath.row].title
-        cell.createdby.text = (appDelegate.group?.tasksObjects[indexPath.row].createdByName)! + "が投稿しました"
+        cell.deadline.text = date_formatter.stringFromDate((appDelegate.group?.tasksObjects[indexPath.row].deadline)!)
         cell.comment.text = appDelegate.group?.tasksObjects[indexPath.row].comment
         return cell
     }

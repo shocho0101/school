@@ -16,9 +16,7 @@ class Task: PFObject, PFSubclassing {
     @NSManaged var title: String
     @NSManaged var deadline: NSDate
     @NSManaged var comment: String?
-    @NSManaged var createdBy: PFRelation
-    var createdByName: String!
-    
+      
     override class func initialize(){
         var onceToken: dispatch_once_t = 0
         dispatch_once(&onceToken){
@@ -54,7 +52,6 @@ class Task: PFObject, PFSubclassing {
 //    }
     
     func post() throws{
-        createdBy.addObject(PFUser.currentUser()!)
         do{
             try self.save()
             try appDelegate.group?.connectTaskAndReload(self)
