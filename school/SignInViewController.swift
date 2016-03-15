@@ -9,13 +9,20 @@
 import UIKit
 import Parse
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet var mail: UITextField!
     @IBOutlet var pass: UITextField!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mail.delegate = self
+        pass.delegate = self
+        
+        mail.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
@@ -60,10 +67,33 @@ class SignInViewController: UIViewController {
                 let parseError = ParseError(error: error)
                 self.alart(parseError.JapaneseForUser)
             }else{
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true) { () -> Void in
+                    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.getGroup()
+                    NSNotificationCenter.defaultCenter().postNotificationName("MyNotification", object: nil)
+                    
+                }
             }
         }
     }
+    
+    @IBAction func back(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField{
+        case mail:
+            pass.becomeFirstResponder()
+        case pass:
+            button()
+        default:
+            print("error")
+            
+        }
+        return false
+    }
+
     
     
 

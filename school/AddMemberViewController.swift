@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 class AddMemberViewController: UIViewController {
     
@@ -34,7 +35,13 @@ class AddMemberViewController: UIViewController {
     @IBAction func changeKey(){
         let alartcontroller: UIAlertController = UIAlertController(title: "", message:"変更すると現在のグループキーは使えなくなります。変更しますか？" , preferredStyle: .Alert)
         let ok: UIAlertAction = UIAlertAction(title: "変更", style: .Default) { (action) -> Void in
-            self.change()
+            SVProgressHUD.show()
+            let delay = 0.01 * Double(NSEC_PER_SEC)
+            let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue(), {
+                self.change()
+            })
+
         }
         let cancel: UIAlertAction = UIAlertAction(title: "キャンセル", style: .Default) { (action) -> Void in
         }
@@ -52,6 +59,8 @@ class AddMemberViewController: UIViewController {
             alart(ParseError(error: error as NSError).JapaneseForUser)
         }
         textfield.text = appDelegate.group!.inviteKey
+        SVProgressHUD.dismiss()
+
     }
     
     func alart(text: String){

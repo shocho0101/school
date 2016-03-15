@@ -17,9 +17,13 @@ class TaskTableViewController: UITableViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = appDelegate.group?.name
+        
         date_formatter.locale     = NSLocale(localeIdentifier: "ja")
         date_formatter.dateFormat = "MM/ddb"
-
+        
+        tableView.tableFooterView = UIView()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reflesh", name: "MyNotification", object: nil)
 
         
         if PFUser.currentUser() == nil{
@@ -52,9 +56,13 @@ class TaskTableViewController: UITableViewController {
             alart(ParseError(error: error as NSError).JapaneseForUser)
         }
         tableView.reloadData()
+    
         self.refreshControl?.endRefreshing()
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -78,6 +86,16 @@ class TaskTableViewController: UITableViewController {
         cell.title.text = appDelegate.group?.tasksObjects[indexPath.row].title
         cell.deadline.text = date_formatter.stringFromDate((appDelegate.group?.tasksObjects[indexPath.row].deadline)!)
         cell.comment.text = appDelegate.group?.tasksObjects[indexPath.row].comment
+        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+        
+        if calendar.isDateInToday((appDelegate.group?.tasksObjects[indexPath.row].deadline)!) == true || calendar.isDateInTomorrow((appDelegate.group?.tasksObjects[indexPath.row].deadline)!) == true{
+            cell.deadline.textColor = UIColor.redColor()
+            cell.title.textColor = UIColor.redColor()   
+        }else if appDelegate.group?.tasksObjects[indexPath.row].deadline.compare(NSDate()) == NSComparisonResult.OrderedAscending{
+            cell.title.textColor = UIColor.lightGrayColor()
+            cell.deadline.textColor = UIColor.lightGrayColor()
+
+        }
         return cell
     }
     
@@ -89,6 +107,12 @@ class TaskTableViewController: UITableViewController {
         self.presentViewController(alartcontroller, animated: true, completion: nil)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "taskToDetail"{
+        let next: DetailTableViewController = segue.destinationViewController as! DetailTableViewController
+        next.task = appDelegate.group?.tasksObjects[(tableView.indexPathForCell(sender as! UITableViewCell)?.row)!]
+        }
+    }
  
 
    

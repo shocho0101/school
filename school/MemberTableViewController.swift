@@ -30,6 +30,10 @@ class MemberTableViewController: UITableViewController {
             }
         }
         
+        let reflesh = UIRefreshControl()
+        reflesh.addTarget(self, action: "update:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = reflesh
+        
         
     }
     
@@ -40,6 +44,7 @@ class MemberTableViewController: UITableViewController {
             alart(ParseError(error: error as NSError).JapaneseForUser)
         }
         tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
     
     

@@ -9,13 +9,14 @@
 import UIKit
 import Parse
 
-class InputInviteKeyViewController: UIViewController {
+class InputInviteKeyViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet var textfield: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        textfield.delegate = self
+        textfield.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
 
@@ -49,6 +50,16 @@ class InputInviteKeyViewController: UIViewController {
             }
         }
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        button()
+        return false
+    }
+    
+    @IBAction func back(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+
     
     
 

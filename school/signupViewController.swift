@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class signupViewController: UIViewController {
+class signupViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var mail: UITextField!
     @IBOutlet var name: UITextField!
@@ -18,6 +18,13 @@ class signupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mail.delegate = self
+        name.delegate = self
+        pass1.delegate = self
+        pass2.delegate = self
+        
+        mail.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,6 +89,26 @@ class signupViewController: UIViewController {
         }
         
                 
+    }
+    
+    @IBAction func back(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField{
+        case name:
+            pass1.becomeFirstResponder()
+        case mail:
+            name.becomeFirstResponder()
+        case pass1:
+            pass2.becomeFirstResponder()
+        case pass2:
+            button()
+        default:
+            print("error")
+        }
+        return false
     }
     
 

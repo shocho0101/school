@@ -18,7 +18,6 @@ class NewHomeworkViewController: XLFormViewController {
         static var name = "name"
         static var deadline = "deadline"
         static var comment = "comment"
-        static var onlyMe = "onlyMe"
         
     }
 
@@ -53,9 +52,7 @@ class NewHomeworkViewController: XLFormViewController {
         row.value = NSDate()
         section1.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: tag.onlyMe, rowType: XLFormRowDescriptorTypeBooleanSwitch, title: "自分にだけ表示")
-        row.value = false
-        section1.addFormRow(row)
+        
         
         section2 = XLFormSectionDescriptor.formSection()
         
@@ -114,12 +111,15 @@ class NewHomeworkViewController: XLFormViewController {
                     SVProgressHUD.dismiss()
                 }
                 try task.post()
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true) { () -> Void in
+                }
+                NSNotificationCenter.defaultCenter().postNotificationName("MyNotification", object: nil)
+
             }catch{
                 self.alart(ParseError(error: error as NSError).JapaneseForUser)
             }
-
-        })
+            
+            })
         
         
     }

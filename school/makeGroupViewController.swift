@@ -8,13 +8,14 @@
 
 import UIKit
 
-class makeGroupViewController: UIViewController {
+class makeGroupViewController: UIViewController ,UITextFieldDelegate{
     
     @IBOutlet var textField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        textField.delegate = self
+        textField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
 
@@ -42,6 +43,17 @@ class makeGroupViewController: UIViewController {
             }
         }
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        button()
+        return false
+    }
+    
+    @IBAction func back(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+
+    
     
     
 }
